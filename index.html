@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Dosis:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="./stylesheets/main.css" />
+    <title>Infobyte Todo WebApp</title>
+  </head>
+  <body>
+    <div class="fixed">
+      <header class="header">
+        <div class="icon">
+          <i class="bi bi-journal-check"></i>
+        </div>
+        <div class="logo">
+          <h1>Infobyte</h1>
+          <h3>Todo WebApp</h3>
+        </div>
+      </header>
+
+      <nav class="nav nav-mobile">
+        <div class="nav nav-mobile nav-tabs" id="nav-tab" role="tablist">
+          <button
+            class="nav-link active"
+            id="nav-pending-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#nav-pending"
+            type="button"
+            role="tab"
+            aria-controls="nav-pending"
+            aria-selected="true"
+          >
+            Pending Tasks
+          </button>
+          <button
+            class="nav-link"
+            id="nav-completed-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#nav-completed"
+            type="button"
+            role="tab"
+            aria-controls="nav-completed"
+            aria-selected="false"
+          >
+            Completed Tasks
+          </button>
+        </div>
+      </nav>
+    </div>
+
+    <nav class="d-flex align-items-start nav-desktop">
+      <div
+        class="nav nav-desktop-container flex-column nav-pills me-3"
+        id="v-pills-tab"
+        role="tablist"
+        aria-orientation="vertical"
+      >
+        <button
+          class="nav-link active"
+          id="v-pills-pending-tab"
+          data-bs-toggle="pill"
+          data-bs-target="#nav-pending"
+          type="button"
+          role="tab"
+          aria-controls="nav-pending"
+          aria-selected="true"
+        >
+          Pending Tasks
+        </button>
+        <button
+          class="nav-link"
+          id="v-pills-completed-tab"
+          data-bs-toggle="pill"
+          data-bs-target="#nav-completed"
+          type="button"
+          role="tab"
+          aria-controls="nav-completed"
+          aria-selected="false"
+        >
+          Complete Tasks
+        </button>
+      </div>
+    </nav>
+
+    <div class="tab-content" id="nav-tabContent">
+      <div
+        class="tab-pane fade show active"
+        id="nav-pending"
+        role="tabpanel"
+        aria-labelledby="nav-pending-tab"
+        tabindex="0"
+      >
+        <ul id="pending-task-list" class="task-list"></ul>
+      </div>
+      <div
+        class="tab-pane fade"
+        id="nav-completed"
+        role="tabpanel"
+        aria-labelledby="nav-completed-tab"
+        tabindex="0"
+      >
+        <ul id="completed-task-list" class="task-list"></ul>
+      </div>
+    </div>
+
+    <div class="addTask">
+      <button id="addTaskBtn" class="addTaskBtn">
+        <i class="bi bi-plus-lg"></i>
+      </button>
+    </div>
+
+    <!-- Modals -->
+    <div id="editTaskModal" class="modal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Edit Task</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form class="taskForm modal-form">
+              <input id="editTaskTitle" type="text" placeholder="Task Title" />
+              <textarea
+                name="editTaskDesc"
+                id="editTaskDesc"
+                cols="40"
+                rows="5"
+                placeholder="Task Description"
+              ></textarea>
+              <button id="editTaskSubmitBtn" type="submit" class="form-button">
+                <i class="bi bi-check2-all"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="addTaskModal" class="modal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Add Task</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form class="taskForm modal-form">
+              <input id="addTaskTitle" type="text" placeholder="Task Title" />
+              <textarea
+                name="addTaskDesc"
+                id="addTaskDesc"
+                cols="40"
+                rows="5"
+                placeholder="Task Description"
+              ></textarea>
+              <button id="addTaskSubmitBtn" type="submit" class="form-button">
+                <i class="bi bi-check2-all"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="viewTaskModal" class="modal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body">
+            <h1 id="viewTaskTitle" ></h1>
+            <p id="viewTaskDesc" ></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>
+        Made with <i class="bi bi-heart-fill"></i> from
+        <img
+          style="width: 1.2em; height: 0.9em; vertical-align: baseline"
+          src="./assets/Flag-Nigeria.webp"
+          alt=""
+        />
+      </p>
+    </footer>
+
+    <script src="./scripts/main.js" type="module"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+  </body>
+</html>

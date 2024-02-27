@@ -1,0 +1,240 @@
+* {
+  font-family: "Dosis", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #4c956c;
+  box-shadow: 0 3px 8px #444;
+}
+
+.icon {
+  font-size: 3em;
+  margin-right: 0.1em;
+}
+
+.logo > h1 {
+  font-family: "Dancing Script", cursive;
+  font-size: 2em;
+}
+
+.logo > h3 {
+  font-family: "Dosis", sans-serif;
+  font-size: 1em;
+}
+
+/* .form {
+  color: #999;
+  display: flex;
+  margin: 1em;
+  border: 2px solid #999;
+  border-radius: 5px;
+  align-content: space-between;
+}
+
+.form:focus-within {
+  border: 2px solid #444;
+}
+
+.form-input {
+  border-radius: 5px;
+  padding: 0.3em;
+  border: none;
+  width: 90%;
+}
+
+.form-input:focus {
+  outline: none;
+}
+
+.form-button {
+  border-radius: 5px;
+  padding: 0.3em;
+  border: none;
+  width: 10%;
+  background-color: #fff;
+} */
+
+.taskForm{
+  width: 90%;
+  margin: 1em auto;
+}
+
+.taskForm > input{
+  padding: 0.2em;
+  margin: 0.3em;
+  width: 100%;
+  border: 1px solid #333;
+  border-radius: 3px;
+}
+
+.taskForm > textarea{
+  padding: 0.2em;
+  margin: 0.3em;
+  width: 100%;
+  border: 1px solid #333;
+  border-radius: 3px;
+}
+
+.taskForm > button{
+  background-color: #4c956c;
+  padding: 0.2em;
+  margin: 0.3em;
+  border-radius: 3px;
+  width: 3em;
+  height: 2em;
+}
+
+
+
+.nav-desktop {
+  display: none !important;
+}
+
+.nav-mobile {
+  width: 100%;
+  margin: 0.5em 0;
+}
+
+.nav-link {
+  color: #999;
+}
+
+.nav-link:active {
+  color: #999;
+}
+
+.fixed {
+  background-color: #fff;
+  position: fixed;
+  width: 100%;
+}
+
+.task-list {
+  z-index: -99;
+  padding: 1em 0;
+  width: 90%;
+  margin: auto;
+  list-style-type: none;
+  padding-top: 9em;
+  padding-bottom: 3.5em;
+}
+
+.task-list-items {
+  background: #4c956c;
+  padding: 0.5em;
+  margin: 0.5em 0;
+  border-radius: 8px;
+  display: flex;
+}
+
+.task-list-items > div {
+  width: 90%;
+  display: grid;
+  cursor: pointer;
+}
+
+.task-list-items > button {
+  margin: 0.3em;
+  border: none;
+  background: none;
+}
+
+.addTask{
+  position: fixed;
+  bottom: 5em;
+  right: 1em;
+}
+
+.addTaskBtn{
+  background-color: #4c956c;
+  width: 3em;
+  height: 3em;
+  border: none;
+  border-radius: 1em;
+  box-shadow: 2px 2px 3px #333;
+}
+
+.footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  background-color: #fff;
+  box-shadow: 0 -3px 8px #444;
+}
+
+.footer > p {
+  margin: 1em 0;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer > p > i {
+  margin: 0 0.2em;
+}
+
+.footer > p > img {
+  margin: 0 0.2em;
+}
+
+@media only screen and (min-device-width: 700px) {
+  .form {
+    width: 40%;
+    margin-left: 40%;
+  }
+  .tab-content {
+    width: 40%;
+    margin-left: 40%;
+  }
+  .nav-mobile {
+    display: none;
+  }
+  .nav-desktop {
+    width: 20%;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    border-right: 1px solid black;
+    display: flex !important;
+    padding-top: 5em;
+    margin-top: 4.5em;
+  }
+
+  .nav-desktop-container {
+    width: 90%;
+    margin: 0 auto !important;
+  }
+
+  .nav-link.active {
+    color: #444 !important;
+    background-color: #4c956c !important;
+  }
+  .task-list {
+    padding-top: 10em;
+  }
+
+  .modal-form{
+    width: 90%;
+    margin: 1em;
+  }
+}
